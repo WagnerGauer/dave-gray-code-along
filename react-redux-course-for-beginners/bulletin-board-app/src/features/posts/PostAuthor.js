@@ -1,4 +1,4 @@
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import { selectAllUsers } from "../users/usersSlice";
 
 import React from "react";

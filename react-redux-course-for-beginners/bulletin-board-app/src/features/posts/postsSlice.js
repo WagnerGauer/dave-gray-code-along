@@ -56,7 +56,6 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.pending, (state, action) => {
         state.status = "loading";
       })
-
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = "succeeded";
         // Adding a date and reactions
@@ -72,7 +71,12 @@ const postsSlice = createSlice({
           };
           return post;
         });
-        state.posts = state.posts.concat(loadedPosts);
+
+        loadedPosts.forEach((loadedPost) => {
+          if (!state.posts.some((post) => post.id === loadedPost.id)) {
+            state.posts.push(loadedPost);
+          }
+        });
       })
       .addCase(fetchPosts.rejected, (state, action) => {
         state.status = "failed";

@@ -11,7 +11,7 @@ import PostsExcerpt from "./PostsExcerpt";
 import React from "react";
 
 const PostsList = () => {
-  const dispatch = useDispatch(useDispatch());
+  const dispatch = useDispatch();
   const posts = useSelector(selectAllPosts);
   const postsStatus = useSelector(getPostsStatus);
   const error = useSelector(getPostsError);
